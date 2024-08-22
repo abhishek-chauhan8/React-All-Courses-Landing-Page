@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# React All Courses Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This project includes a set of React components designed to filter and display a list of courses. Users can like or unlike individual courses, and toggle between viewing all courses and only the courses they have liked. The selected category is saved in `localStorage`, ensuring that user preferences persist across page reloads.
 
-In the project directory, you can run:
 
-### `npm start`
+- **Filter**: Allows users to select a category to filter the courses.
+- **Cards**: Displays a list of course cards based on the selected category.
+- **Card**: Displays individual course information and includes a like/unlike feature with toast notifications.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Dynamic Filtering**: Filter courses based on the selected category.
+- **Like/Unlike Courses**: Users can like or unlike individual courses with visual feedback via toast notifications.
+- **Toggle Between Views**: Users can switch between viewing all courses and only the courses they have liked.
+- **State Persistence**: The selected category is saved in `localStorage`, maintaining user preferences across page reloads.
+- **Toast Notifications**: Provides feedback when a course is liked or unliked.
+- **Responsive Design**: The layout is responsive and adapts to different screen sizes.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Components
 
-### `npm run build`
+### Filter
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Description**: Allows users to select a category to filter the courses. The selected category is saved in `localStorage` and is restored on page reload.
+- **Props**:
+  - `category` (string): The currently selected category.
+  - `setCategory` (function): Function to update the selected category.
+  - `filterData` (array): Array of categories for filtering.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Cards
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Description**: Displays a list of course cards based on the selected category. Allows users to toggle between viewing all courses and only the courses they have liked.
+- **Props**:
+  - `category` (string): The currently selected category.
+  - `courses` (object): An object where keys are category names and values are arrays of courses.
+- **State**:
+  - `likedCourses` (array): Array of IDs of liked courses.
+  - `showLikedCourses` (boolean): Determines whether to show liked courses or all courses.
 
-### `npm run eject`
+### Card
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Description**: Displays individual course information and includes a like/unlike feature.
+- **Props**:
+  - `course` (object): Course details including `id`, `title`, `description`, and `image`.
+  - `likedCourses` (array): Array of IDs of liked courses.
+  - `setLikedCourses` (function): Function to update the liked courses.
+- **Features**:
+  - **Like/Unlike Button**: Toggles the course's liked state and provides feedback via toast notifications.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
